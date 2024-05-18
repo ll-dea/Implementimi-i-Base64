@@ -15,3 +15,22 @@ def encode_base64(data):
 
     padding = '=' * ((4 - len(base64_string) % 4) % 4)
     return base64_string + padding
+
+def decode_base64(base64_string):
+    padding_length = base64_string.count('=')
+    base64_string = base64_string.rstrip('=')
+    binary_string = ''
+
+    for char in base64_string:
+        index = BASE64_ALPHABET.index(char)
+        binary_string += f'{index:06b}'
+
+    binary_string = binary_string[:len(binary_string) - (padding_length * 2)]
+
+    data = bytearray()
+    for i in range(0, len(binary_string), 8):
+        byte = binary_string[i:i + 8]
+        if len(byte) == 8:
+            data.append(int(byte, 2))
+
+    return bytes(data)
