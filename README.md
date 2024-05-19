@@ -9,4 +9,4 @@ No special configurations are needed to run this program. As long as you have Py
 
 Expected Results
 
-The expected result of this project is a fully functional Python program that allows users to encrypt and decrypt messages using the Polybius Square Cipher. Users can expect a user-friendly interface.
+The expected result of this project is a fully functional Python program that allows users to encrypt and decrypt messages using the Base64. Users can expect a user-friendly interface.
