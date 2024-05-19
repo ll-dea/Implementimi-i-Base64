@@ -34,3 +34,19 @@ def decode_base64(base64_string):
             data.append(int(byte, 2))
 
     return bytes(data)
+
+
+def encode_or_decode(choice, text):
+    if choice.lower() == "encode":
+        encoded = encode_base64(text.encode())
+        print(f"Encoded: {encoded}")
+    elif choice.lower() == "decode":
+        decoded = decode_base64(text)
+        print(f"Decoded: {decoded.decode()}")
+    else:
+        print("Invalid choice!")
+
+task = input("Do you want to encode or decode? ")
+user_text = input("Enter the text: ")
+
+encode_or_decode(task, user_text)
